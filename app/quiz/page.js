@@ -88,7 +88,6 @@ export default function QuizPage() {
       <div className="border-t-4 border-blue-500 border-solid w-16 h-16 rounded-full animate-spin"></div>
     </div>
   );
-  
 
   const question = questions[currentQuestion];
   const options = [...question.incorrect_answers, question.correct_answer];
@@ -179,7 +178,7 @@ export default function QuizPage() {
         </div>
 
         {/* Right Side (Overview Panel) */}
-        <div className="flex-1 w-1/3 bg-gray-100 p-4 rounded-md shadow-md">
+        <div className="flex-1 w-1/6 bg-gray-100 p-4 rounded-md shadow-md">
           <h2 className="text-2xl font-semibold mb-4">Overview</h2>
           <div className="grid grid-cols-5 gap-2">
             {Array.from({ length: 15 }, (_, index) => (
@@ -230,7 +229,7 @@ export default function QuizPage() {
                   </div>
                 ))
               ) : (
-                <p>No visited but not attempted questions</p>
+                <p> </p>
               )}
             </div>
           </div>
