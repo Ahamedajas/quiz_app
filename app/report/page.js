@@ -1,19 +1,32 @@
-"use client";
+"use client"; // Ensures this is a client-side component
 
 import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 export default function ReportPage() {
   const searchParams = useSearchParams();
-  const dataParam = searchParams.get("data");
+  const [answersData, setAnswersData] = useState(null);
 
-  if (!dataParam) {
-    return <div>No data found!</div>;
+  useEffect(() => {
+    // Get the query parameter named 'data'
+    const dataParam = searchParams.get("data");
+
+    if (dataParam) {
+      try {
+        // Decode and parse the 'data' query parameter
+        const parsedData = JSON.parse(decodeURIComponent(dataParam));
+        setAnswersData(parsedData); // Store the data in state
+      } catch (error) {
+        console.error("Error parsing data:", error);
+      }
+    }
+  }, [searchParams]); // Run this effect whenever searchParams changes
+
+  if (!answersData) {
+    return <div>No data found!</div>; // If no data, show this message
   }
 
-  // Decode and parse the answers data
-  const answersData = JSON.parse(decodeURIComponent(dataParam));
-
-  // Calculate the total score
+  // Calculate total score based on the answers
   const totalScore = answersData.reduce((score, answer) => {
     return answer.userAnswer === answer.correctAnswer ? score + 1 : score;
   }, 0);
