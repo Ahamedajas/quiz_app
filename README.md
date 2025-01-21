@@ -41,6 +41,9 @@ The Quiz App is a web-based application designed to provide an engaging and inte
 3. Answer the questions by selecting one of the options.
 4. After completing the quiz, view your results on the results page.
 
+## Challenges Faced
+1.State Management: Handling complex state for question navigation, scores, and timers.
+2.Dynamic Question Loading: Issues with fetching or displaying questions dynamically from a database or API.
 
 ## Future Enhancements
 - Add a timer for each question.
