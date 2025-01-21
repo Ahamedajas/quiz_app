@@ -15,7 +15,7 @@ The Quiz App is a web-based application designed to provide an engaging and inte
 ## Installation and Setup
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Ahamedajas/quiz_app.git
    ```
 
 2. Navigate to the project directory:
